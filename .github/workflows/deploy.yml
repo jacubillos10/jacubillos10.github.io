@@ -22,13 +22,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-        - run: pip3 install "pelican[markdown]"
-        - name: Build pelican site
-          run: pelican -o output -s publishconf.py content
-        - uses: actions/configure-pages@v5
-        - uses: actions/upload-pages-artifact@v3
-          with:
-            path: 'output'
-        - name: Deploy to GitHub Pages
-          id: deployment
-          uses: actions/deploy-pages@v4
+      - run: pip3 install "pelican[markdown]"
+      - name: Build pelican site
+        run: pelican -o output -s publishconf.py content
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'output'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
