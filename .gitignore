@@ -1,0 +1,25 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore environment files (if using a virtual environment)
+venv/
+.env/
+*.env
+
+# Ignore Pelican's cache and metadata
+cache/
+*.log
+*.pid
+*.swp
+*.swo
+*.DS_Store
+
+# Ignore editor and system files
+*.bak
+*.tmp
+*.~*
+*.lock
+Thumbs.db

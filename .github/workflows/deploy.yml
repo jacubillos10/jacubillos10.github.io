@@ -1,0 +1,29 @@
+name: Deploy Pelican Site
+
+on:
+  push:
+    branches:
+      - main  # Deploy whenever the main branch is updated
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Install Pelican and dependencies
+        run: pip install pelican ghp-import markdown typogrify
+
+      - name: Build Pelican site
+        run: make html
+
+      - name: Deploy to GitHub Pages
+        run: |
+          ghp-import output -b gh-pages -m "Automated deployment"
+          git push -f origin gh-pages
